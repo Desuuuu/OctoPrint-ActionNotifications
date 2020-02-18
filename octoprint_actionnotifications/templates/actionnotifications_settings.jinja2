@@ -1,0 +1,33 @@
+<h3>{{ _('Action Notifications Settings') }}</h3>
+
+<form class="form-horizontal">
+  <div class="control-group">
+    <label class="control-label">{{ _('Enable') }}</label>
+    <div class="controls">
+      <input type="checkbox" data-bind="checked: settings.plugins.actionnotifications.enable">
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label">{{ _('Type') }}</label>
+    <div class="controls">
+      <select class="input-medium" data-bind="value: settings.plugins.actionnotifications.type">
+        <option value="notice">Notice</option>
+        <option value="info">Info</option>
+        <option value="success">Success</option>
+        <option value="error">Error</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label">{{ _('Duration') }}</label>
+    <div class="controls">
+      <div class="input-append">
+        <input type="number" min="0" max="86400" step="1" class="input-mini text-right" data-bind="value: settings.plugins.actionnotifications.duration">
+        <span class="add-on">s</span>
+      </div>
+      <span class="help-inline">(0 = notification does not disappear automatically)</span>
+    </div>
+  </div>
+</form>
