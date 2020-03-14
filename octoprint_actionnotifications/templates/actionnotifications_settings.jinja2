@@ -30,4 +30,33 @@
       <span class="help-inline">(0 = notification does not disappear automatically)</span>
     </div>
   </div>
+
+  <div class="control-group">
+    <label class="control-label">{{ _('Block duplicates') }}</label>
+    <div class="controls">
+      <input type="checkbox" data-bind="checked: settings.plugins.actionnotifications.noduplicate">
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label">{{ _('Filters') }}</label>
+    <div class="controls">
+      <!-- ko foreach: filters -->
+        <div class="filter-row controls-row">
+          <div class="span10">
+            <input type="text" class="input-block-level" maxlength="32" data-bind="textInput: content">
+          </div>
+          <div class="span2 text-center">
+            <a class="btn btn-danger" data-bind="click: $parent.removeFilter.bind($data, $index)"><i class="icon-trash"></i></a>
+          </div>
+        </div>
+      <!-- /ko -->
+      <div class="filter-row controls-row">
+        <div class="span10"></div>
+        <div class="span2 text-center">
+          <a class="btn btn-primary" data-bind="click: addFilter"><i class="icon-plus"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
 </form>
