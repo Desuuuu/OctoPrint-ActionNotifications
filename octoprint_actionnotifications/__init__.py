@@ -12,9 +12,9 @@ DEFAULT_NODUPLICATE = True
 DEFAULT_FILTERS = []
 
 class ActionNotificationsPlugin(octoprint.plugin.TemplatePlugin,
-			octoprint.plugin.AssetPlugin,
-			octoprint.plugin.SettingsPlugin,
-			octoprint.plugin.ReloadNeedingPlugin):
+                                octoprint.plugin.AssetPlugin,
+                                octoprint.plugin.SettingsPlugin,
+                                octoprint.plugin.ReloadNeedingPlugin):
 
 	def __init__(self):
 		self.enable = False
