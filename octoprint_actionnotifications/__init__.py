@@ -132,6 +132,19 @@ class ActionNotificationsPlugin(octoprint.plugin.TemplatePlugin,
 			noduplicate = self.noduplicate
 		))
 
+	def get_update_information(self):
+		return dict(
+			actionnotifications = dict(
+				displayName = self._plugin_name,
+				displayVersion = self._plugin_version,
+				type = "github_release",
+				user = "Desuuuu",
+				repo = "OctoPrint-ActionNotifications",
+				current = self._plugin_version,
+				pip = "https://github.com/Desuuuu/OctoPrint-ActionNotifications/archive/{target_version}.zip"
+			)
+		)
+
 __plugin_name__ = "Action Notifications"
 __plugin_pythoncompat__ = ">=2.7,<4"
 
@@ -143,5 +156,6 @@ def __plugin_load__():
 
 	global __plugin_hooks__
 	__plugin_hooks__ = {
-		"octoprint.comm.protocol.action": plugin.action_handler
+		"octoprint.comm.protocol.action": plugin.action_handler,
+		"octoprint.plugin.softwareupdate.check_config": plugin.get_update_information
 	}
